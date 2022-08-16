@@ -1,0 +1,129 @@
+﻿<Window x:Class="AccountControl.Windows.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AccountControl.Windows"
+        xmlns:classes="clr-namespace:AccountControl.Classes"
+        mc:Ignorable="d"
+        Title="Account Control" Height="500" Width="400" MinWidth="400" MinHeight="500">
+
+    <Window.Resources>
+        <classes:Accounts x:Key="accounts"/>
+        <CollectionViewSource x:Key="cvsAccounts" Source="{StaticResource accounts}">
+            <CollectionViewSource.GroupDescriptions>
+                <PropertyGroupDescription PropertyName="MainTag"/>
+                <PropertyGroupDescription PropertyName="SideTag"/>
+            </CollectionViewSource.GroupDescriptions>
+        </CollectionViewSource>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <!--Top menu bar-->
+        <StackPanel Height="30" Width="392" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <Button Content="Create" Width="75" Click="Create_Click" FontFamily="Verdana"/>
+            <Button Content="Create and open" Width="135" Click="Create_Click" Tag="open" FontFamily="Verdana"/>
+            <Button Content="Load" Width="75" Click="Load_Click" FontFamily="Verdana"/>
+            <Button Content="Save" Width="75" Click="Save_Click" FontFamily="Verdana"/>
+        </StackPanel>
+
+        <!--Data panel-->
+        <DataGrid x:Name="dataGrid1" Grid.Row="1" ItemsSource="{Binding Source={StaticResource cvsAccounts}}" AutoGeneratingColumn="DataGrid_AutoGeneratingColumn"
+                  VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" HeadersVisibility="Column"
+                  CanUserDeleteRows="False" CanUserAddRows="False" IsReadOnly="True" FontFamily="Verdana">
+            <!--Context menu-->
+            <DataGrid.Resources>
+                <ContextMenu x:Key="mainTagContextMenu">
+                    <ContextMenu.Items>
+                        <MenuItem Header="Create here" Click="FirstTagCreate_Click" FontFamily="Verdana"/>
+                        <MenuItem Header="Create here and open" Click="FirstTagCreate_Click" Tag="open" FontFamily="Verdana"/>
+                    </ContextMenu.Items>
+                </ContextMenu>
+                <ContextMenu x:Key="sideTagContextMenu">
+                    <ContextMenu.Items>
+                        <MenuItem Header="Create here" Click="SecondTagGreate_Click" FontFamily="Verdana"/>
+                        <MenuItem Header="Create here and open" Click="SecondTagGreate_Click" Tag="open" FontFamily="Verdana"/>
+                    </ContextMenu.Items>
+                </ContextMenu>
+                <ContextMenu x:Key="itemContextMenu">
+                    <ContextMenu.Items>
+                        <MenuItem Header="Duplicate" Click="DubAccount_Click" FontFamily="Verdana"/>
+                        <MenuItem Header="Delete" Click="DelAccount_Click" FontFamily="Verdana"/>
+                    </ContextMenu.Items>
+                </ContextMenu>
+            </DataGrid.Resources>
+            <DataGrid.GroupStyle>
+                <!--Main tag group style-->
+                <GroupStyle>
+                    <GroupStyle.ContainerStyle>
+                        <Style TargetType="{x:Type GroupItem}">
+                            <Setter Property="ContextMenu" Value="{StaticResource mainTagContextMenu}" />
+                            <Setter Property="Margin" Value="0,0,0,5"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type GroupItem}">
+                                        <Expander IsExpanded="True" Background="#FF112255" BorderBrush="#FF002255" Foreground="#FFEEEEEE" BorderThickness="1,1,1,5" HorizontalAlignment="Stretch">
+                                            <Expander.Header>
+                                                <DockPanel>
+                                                    <TextBlock FontWeight="Bold" Text="{Binding ItemCount}" FontFamily="Verdana" HorizontalAlignment="Right" Width="100"/>
+                                                    <TextBlock FontWeight="Bold" Text="{Binding Name}" Margin="5,0,0,0" FontFamily="Verdana"/>
+                                                </DockPanel>
+                                            </Expander.Header>
+                                            <ItemsPresenter/>
+                                        </Expander>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </GroupStyle.ContainerStyle>
+                </GroupStyle>
+                <!--Side tag group style-->
+                <GroupStyle>
+                    <GroupStyle.ContainerStyle>
+                        <Style TargetType="{x:Type GroupItem}">
+                            <Setter Property="ContextMenu" Value="{StaticResource sideTagContextMenu}" />
+                            <Setter Property="Margin" Value="0,0,0,5"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type GroupItem}">
+                                        <Expander IsExpanded="False" Background="#FF2A73B4" BorderBrush="#FF2A73B4" Foreground="#FFEEEEEE" BorderThickness="1,1,1,5" ScrollViewer.VerticalScrollBarVisibility="Visible">
+                                            <Expander.Header>
+                                                <DockPanel>
+                                                    <TextBlock FontWeight="Bold" Text="{Binding ItemCount}" Width="100" FontFamily="Verdana"/>
+                                                    <TextBlock FontWeight="Bold" Text="{Binding Name}" Margin="5,0,0,0" FontFamily="Verdana"/>
+                                                </DockPanel>
+                                            </Expander.Header>
+                                            <ItemsPresenter/>
+                                        </Expander>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </GroupStyle.ContainerStyle>
+                </GroupStyle>
+            </DataGrid.GroupStyle>
+            <DataGrid.RowStyle>
+                <!--Row style-->
+                <Style TargetType="{x:Type DataGridRow}">
+                    <Setter Property="ContextMenu" Value="{StaticResource itemContextMenu}" />
+                    <EventSetter Event="Control.MouseDoubleClick" Handler="Row_DoubleClick"/>
+                    <Setter Property="Foreground" Value="Black" />
+                    <Setter Property="Background" Value="#FF9EC3E4"/>
+                    <Setter Property="FontSize" Value="14"/>
+                    <Setter Property="FontFamily" Value="Verdana"/>
+                    <!--<Setter Property="ToolTip" Value="{Binding equipmentElements}"/>-->
+                    <!--<Setter Property="FontWeight" Value="Bold"/>-->
+                </Style>
+            </DataGrid.RowStyle>
+        </DataGrid>
+
+    </Grid>
+</Window>
