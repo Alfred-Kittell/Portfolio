@@ -1,0 +1,142 @@
+[
+	{
+		"MainTag":"Desk",
+		"SideTag":"Technique",
+		"Name":"Computer mouse",
+		"IsVisible":false,
+		"Height":186,
+		"Width":272,
+		"Top":701,
+		"Left":1151.5
+	},
+	{
+		"MainTag":"Desk",
+		"SideTag":"Technique",
+		"Name":"Music Center",
+		"IsVisible":false,
+		"Height":422,
+		"Width":363,
+		"Top":179,
+		"Left":1102.5
+	},
+	{
+		"MainTag":"Desk",
+		"SideTag":"Technique",
+		"Name":"Notebook",
+		"IsVisible":false,
+		"Height":572,
+		"Width":732.5,
+		"Top":177,
+		"Left":297
+	},
+	{
+		"MainTag":"Desk",
+		"SideTag":"Technique",
+		"Name":"Telephone",
+		"IsVisible":false,
+		"Height":159,
+		"Width":251,
+		"Top":530,
+		"Left":1084.5
+	},
+	{
+		"MainTag":"Impudent cat",
+		"SideTag":"Cheeky face",
+		"Name":"Left ear",
+		"IsVisible":false,
+		"Height":89,
+		"Width":79.5,
+		"Top":332,
+		"Left":828
+	},
+	{
+		"MainTag":"Impudent cat",
+		"SideTag":"Cheeky face",
+		"Name":"Left eye",
+		"IsVisible":false,
+		"Height":89,
+		"Width":79.5,
+		"Top":394,
+		"Left":859
+	},
+	{
+		"MainTag":"Impudent cat",
+		"SideTag":"Cheeky face",
+		"Name":"Nose",
+		"IsVisible":false,
+		"Height":89,
+		"Width":79.5,
+		"Top":431,
+		"Left":898
+	},
+	{
+		"MainTag":"Impudent cat",
+		"SideTag":"Cheeky face",
+		"Name":"Right ear",
+		"IsVisible":false,
+		"Height":89,
+		"Width":79.5,
+		"Top":331,
+		"Left":953
+	},
+	{
+		"MainTag":"Impudent cat",
+		"SideTag":"Cheeky face",
+		"Name":"Right eye",
+		"IsVisible":false,
+		"Height":89,
+		"Width":79.5,
+		"Top":394,
+		"Left":940
+	},
+	{
+		"MainTag":"Impudent cat",
+		"SideTag":"Impudent body",
+		"Name":"Furry butt",
+		"IsVisible":false,
+		"Height":222,
+		"Width":265,
+		"Top":420,
+		"Left":290.5
+	},
+	{
+		"MainTag":"Impudent cat",
+		"SideTag":"Impudent body",
+		"Name":"Right front paw",
+		"IsVisible":false,
+		"Height":200,
+		"Width":200,
+		"Top":612,
+		"Left":844
+	},
+	{
+		"MainTag":"Impudent cat",
+		"SideTag":"Impudent body",
+		"Name":"Right hind leg",
+		"IsVisible":false,
+		"Height":137,
+		"Width":355.5,
+		"Top":616,
+		"Left":333
+	},
+	{
+		"MainTag":"Impudent cat",
+		"SideTag":"Impudent body",
+		"Name":"Stomach",
+		"IsVisible":false,
+		"Height":222,
+		"Width":265,
+		"Top":433,
+		"Left":517.5
+	},
+	{
+		"MainTag":"Impudent cat",
+		"SideTag":"Impudent body",
+		"Name":"Tail",
+		"IsVisible":false,
+		"Height":162,
+		"Width":383.5,
+		"Top":716,
+		"Left":129
+	}
+]
