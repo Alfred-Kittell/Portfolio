@@ -68,9 +68,6 @@
     <Compile Include="UserControls\SelectionBox.xaml.cs">
       <DependentUpon>SelectionBox.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\Dialog1.xaml.cs">
-      <DependentUpon>Dialog1.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Classes\Zone.cs" />
     <Compile Include="Windows\ZoneWindow.xaml.cs">
       <DependentUpon>ZoneWindow.xaml</DependentUpon>
@@ -78,10 +75,6 @@
     <Page Include="UserControls\SelectionBox.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Windows\Dialog1.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
