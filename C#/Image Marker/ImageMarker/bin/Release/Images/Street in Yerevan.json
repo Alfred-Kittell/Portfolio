@@ -73,7 +73,7 @@
 		"MainTag":"People",
 		"SideTag":"Children",
 		"Name":"Fides",
-		"IsVisible":true,
+		"IsVisible":false,
 		"Height":144,
 		"Width":71.6666666666666,
 		"Top":1177,
