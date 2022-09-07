@@ -17,7 +17,7 @@ namespace AccountControl.Windows
     public partial class MainWindow : Window
     {
         private Accounts accounts;
-        private string accountsPath = "data.json";
+        private string dataPath = "data.json";
 
         // #################################################################################
 
@@ -205,15 +205,15 @@ namespace AccountControl.Windows
         /// <summary>
         /// Create an account
         /// </summary>
-        /// <param name="firstTag">Filling in the main tag</param>
-        /// <param name="secondTag">Filling in the side tag</param>
+        /// <param name="mainTag">Filling in the main tag</param>
+        /// <param name="sideTag">Filling in the side tag</param>
         /// <returns>Created account</returns>
-        private Account AccountCreate(string firstTag, string secondTag)
+        private Account AccountCreate(string mainTag, string sideTag)
         {
             Account account = new Account
             {
-                MainTag = firstTag,
-                SideTag = secondTag,
+                MainTag = mainTag,
+                SideTag = sideTag,
                 Name = "New account"
             };
 
@@ -227,12 +227,12 @@ namespace AccountControl.Windows
         /// </summary>
         private void AccountsLoad()
         {
-            if (!File.Exists(accountsPath))
+            if (!File.Exists(dataPath))
             {
                 return;
             }
 
-            string fileJson = File.ReadAllText(accountsPath);
+            string fileJson = File.ReadAllText(dataPath);
 
             List<Account> values = fileJson.FromJson<List<Account>>();
             accounts.Clear();
@@ -250,7 +250,7 @@ namespace AccountControl.Windows
         private void AccountsSave()
         {
             string json = accounts.ToJson(true);
-            File.WriteAllText(accountsPath, json);
+            File.WriteAllText(dataPath, json);
         }
 
         #endregion Operations with accounts

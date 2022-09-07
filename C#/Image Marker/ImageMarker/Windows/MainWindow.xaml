@@ -69,17 +69,16 @@
                     </Grid.RowDefinitions>
                     <Label Content="Zones" Background="#FF457AB0" Foreground="White" Padding="10,0,0,0" FontFamily="Verdana" FontSize="14" VerticalContentAlignment="Center"/>
                     <StackPanel Grid.Row="1" Orientation="Horizontal">
-                        <Button Content="Create" Click="ZoneCreate_Click"  Width="50"/>
-                        <Button Content="Create and open" Click="ZoneCreate_Click" Width="100" Tag="open"/>
-                        <Button Content="Save" Width="41" Click="ZonesSave_Click"/>
-                        <Button Content="Load" Width="42" Click="ZonesLoad_Click"/>
+                        <Button Content="Create" Click="ZoneCreate_Click" Width="50" FontFamily="Verdana" FontSize="11"/>
+                        <Button Content="Create and open" Click="ZoneCreate_Click" Width="100" Tag="open" FontFamily="Verdana" FontSize="11"/>
+                        <Button Content="Save" Width="41" Click="ZonesSave_Click" FontFamily="Verdana" FontSize="11"/>
+                        <Button Content="Load" Width="42" Click="ZonesLoad_Click" FontFamily="Verdana" FontSize="11"/>
                     </StackPanel>
                     <StackPanel Grid.Row="2" Background="White" Orientation="Horizontal">
                         <CheckBox x:Name="openCheckBox" Content="Double click opens the zone card" VerticalContentAlignment="Center" Padding="5,0,0,0" HorizontalAlignment="Right" Margin="10,0,0,0"/>
                     </StackPanel>
-                    <DataGrid x:Name="dataGrid1"
-                                  HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" BorderThickness="0" Background="{x:Null}"
-                                  HeadersVisibility="Column" IsReadOnly="True" Grid.Row="3" AutoGeneratingColumn="DataGrid_AutoGeneratingColumn">
+                    <DataGrid x:Name="dataGrid1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" BorderThickness="0" Background="{x:Null}"
+                              HeadersVisibility="Column" IsReadOnly="True" Grid.Row="3" AutoGeneratingColumn="DataGrid_AutoGeneratingColumn">
                         <DataGrid.Resources>
                             <ContextMenu x:Key="groupContextMenu">
                                 <MenuItem Header="Create here" Click="GroupGreate_Click"/>
@@ -153,8 +152,8 @@
                         </DataGrid.GroupStyle>
                         <DataGrid.RowStyle>
                             <Style TargetType="{x:Type DataGridRow}">
-                                <Setter Property="ContextMenu" Value="{StaticResource rowContextMenu}"/>
                                 <EventSetter Event="Control.MouseDoubleClick" Handler="DataGridRow_DoubleClick"/>
+                                <Setter Property="ContextMenu" Value="{StaticResource rowContextMenu}"/>
                                 <Setter Property="Foreground" Value="Black" />
                                 <Setter Property="Background" Value="#FF9EC3E4"/>
                                 <Setter Property="FontSize" Value="14"/>

@@ -21,6 +21,27 @@ namespace ImageMarker.Classes
         private SelectionBox selectionBox;
 
         /// <summary>
+        /// Zone display
+        /// </summary>
+        public bool IsVisible
+        {
+            get => _visible;
+            set
+            {
+                if (value != _visible)
+                {
+                    _visible = value;
+                    if (selectionBox != null)
+                    {
+                        selectionBox.Visibility = value ? Visibility.Visible : Visibility.Hidden;
+                    }
+                    NotifyPropertyChanged("IsVisible");
+                }
+            }
+        }
+        private bool _visible = true;
+
+        /// <summary>
         /// Main group tag
         /// </summary>
         public string MainTag
@@ -88,27 +109,6 @@ namespace ImageMarker.Classes
             }
         }
         private string _description;
-
-        /// <summary>
-        /// Zone display
-        /// </summary>
-        public bool IsVisible
-        {
-            get => _visible;
-            set
-            {
-                if (value != _visible)
-                {
-                    _visible = value;
-                    if (selectionBox != null)
-                    {
-                        selectionBox.Visibility = value ? Visibility.Visible : Visibility.Hidden;
-                    }
-                    NotifyPropertyChanged("IsVisible");
-                }
-            }
-        }
-        private bool _visible = true;
 
         /// <summary>
         /// Height for the selectionBox
@@ -305,6 +305,7 @@ namespace ImageMarker.Classes
                 MainTag = MainTag,
                 SideTag = SideTag,
                 Name = Name,
+                Description = Description,
                 IsVisible = IsVisible,
                 Left = Left,
                 Top = Top,

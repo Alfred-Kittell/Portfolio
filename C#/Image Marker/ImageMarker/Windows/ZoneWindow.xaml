@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:ImageMarker.Windows"
         mc:Ignorable="d"
         Title="ZoneWindow" Height="350" Width="308" MinWidth="308" MinHeight="350">
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="140"/>
@@ -46,8 +47,8 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Label Content="Toolbar:" Background="#FF457AB0" Foreground="White" Padding="5,0,0,0" FontFamily="Verdana" VerticalContentAlignment="Center"/>
-            <Button Content="Cancel changes" Click="Cancel_Click" Height="25" Width="135" Margin="10,10,0,0" Grid.Row="1" FontFamily="Verdana" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-            <Button Content="Save changes" Click="Save_Click" Height="25" Width="135" Margin="155,10,0,0" Grid.Row="1" FontFamily="Verdana" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+            <Button Content="Cancel changes" Click="Cancel_Click" Height="25" Width="130" Margin="10,10,0,0" Grid.Row="1" FontFamily="Verdana" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+            <Button Content="Save changes" Click="Save_Click" Height="25" Width="130" Margin="150,10,0,0" Grid.Row="1" FontFamily="Verdana" VerticalAlignment="Top" HorizontalAlignment="Left"/>
         </Grid>
     </Grid>
 </Window>

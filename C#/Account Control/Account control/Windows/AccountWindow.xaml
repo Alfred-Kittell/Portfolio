@@ -15,14 +15,12 @@
         </Grid.RowDefinitions>
 
         <!--Tag panel-->
-        <Grid Height="120" VerticalAlignment="Top">
+        <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="30"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Grid Height="30" Background="#FF457AB0" VerticalAlignment="Top">
-                <Label Content="Tag information:" Foreground="White" Margin="5,0,0,0" FontFamily="Verdana" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-            </Grid>
+            <Label Content="Tag information:" Background="#FF457AB0" Foreground="White" Padding="5,0,0,0" FontFamily="Verdana" VerticalContentAlignment="Center"/>
             <Label Content="Main tag:" Height="20" Width="60" Margin="10,10,0,0" Grid.Row="1" Padding="0" FontFamily="Verdana" VerticalAlignment="Top" HorizontalAlignment="Left" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
             <Label Content="Side tag:" Height="20" Width="60" Margin="10,35,0,0" Grid.Row="1" Padding="0" FontFamily="Verdana" VerticalAlignment="Top" HorizontalAlignment="Left" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
             <Label Content="Name:" Height="20" Width="60" Margin="10,60,0,0" Grid.Row="1" Padding="0" FontFamily="Verdana" VerticalAlignment="Top" HorizontalAlignment="Left" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
@@ -32,7 +30,7 @@
         </Grid>
 
         <!--Основная панель-->
-        <Grid Height="120" Grid.Row="1" VerticalAlignment="Top">
+        <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="45"/>
@@ -41,9 +39,7 @@
                 <RowDefinition Height="30"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Grid Height="30" Background="#FF457AB0" VerticalAlignment="Top" Grid.ColumnSpan="2">
-                <Label Content="Basic information:" Foreground="White" Margin="5,0,0,0" FontFamily="Verdana" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-            </Grid>
+            <Label Content="Basic information:" Background="#FF457AB0" Foreground="White" Grid.ColumnSpan="2" Padding="5,0,0,0" FontFamily="Verdana" VerticalContentAlignment="Center"/>
             <Label Content="Mail:" Height="20" Width="60" Margin="10,10,0,0" Grid.Row="1" Padding="0" FontFamily="Verdana" VerticalAlignment="Top" HorizontalAlignment="Left" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
             <Label Content="Login:" Height="20" Width="60" Margin="10,35,0,0" Grid.Row="1" Padding="0" FontFamily="Verdana" VerticalAlignment="Top" HorizontalAlignment="Left" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" />
             <Label Content="Pass:" Height="20" Width="60" Margin="10,58,0,0" Grid.Row="1" Padding="0" FontFamily="Verdana" VerticalAlignment="Top" HorizontalAlignment="Left" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
@@ -61,21 +57,17 @@
                 <RowDefinition Height="30"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Grid Height="30" Background="#FF457AB0" VerticalAlignment="Top">
-                <Label Content="Additional Information:" Foreground="White" Margin="5,0,0,0" FontFamily="Verdana" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-            </Grid>
+            <Label Content="Additional Information:" Background="#FF457AB0" Foreground="White" Padding="5,0,0,0" FontFamily="Verdana" VerticalContentAlignment="Center"/>
             <TextBox x:Name="additionalBox" TextChanged="Text_Changed" Margin="10" Grid.Row="1" TextWrapping="Wrap" FontFamily="Verdana" IsUndoEnabled="True" AcceptsTab="True" AcceptsReturn="True" AutoWordSelection="True"/>
         </Grid>
 
         <!--Toolbar-->
-        <Grid Height="110" Grid.Row="3" VerticalAlignment="Top">
+        <Grid Grid.Row="3">
             <Grid.RowDefinitions>
                 <RowDefinition Height="30"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Grid Height="30" Background="#FF457AB0" VerticalAlignment="Top">
-                <Label Content="Toolbar:" Foreground="White" Margin="5,0,0,0" FontFamily="Verdana" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-            </Grid>
+            <Label Content="Toolbar:" Background="#FF457AB0" Foreground="White" Padding="5,0,0,0" FontFamily="Verdana" VerticalContentAlignment="Center"/>
             <Button Content="Create" Click="Create_Click" Height="25" Width="65" Margin="10,10,0,0" Grid.Row="1" FontFamily="Verdana" VerticalAlignment="Top" HorizontalAlignment="Left"/>
             <Button Content="&lt;&lt;&lt;" Click="Left_Click" Height="25" Width="40" Margin="85,10,0,0" Grid.Row="1" FontFamily="Verdana" VerticalAlignment="Top" HorizontalAlignment="Left"/>
             <Label x:Name="countBox" Content="0/0" Height="25" Width="35" Margin="130,10,0,0" Padding="0" Grid.Row="1" FontFamily="Verdana" VerticalAlignment="Top" HorizontalAlignment="Left" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
