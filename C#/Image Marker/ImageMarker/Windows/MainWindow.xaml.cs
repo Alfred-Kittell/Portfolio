@@ -20,11 +20,11 @@ namespace ImageMarker.Windows
     public partial class MainWindow : Window
     {
         private string imagesPath = "Images";
-        private string dataPath = "data.json";
+        private string dataPath = "";
 
         public Zones zones;
 
-        // #################################################################################
+        // #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#
 
         /// <summary>
         /// Initializes a new instance of the class <see cref="MainWindow"/>.
@@ -41,7 +41,7 @@ namespace ImageMarker.Windows
             //CreateZones();
         }
 
-        // #################################################################################
+        // #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#
 
         #region Operations with images
 
@@ -91,7 +91,7 @@ namespace ImageMarker.Windows
 
         #endregion Operations with images
 
-        // #################################################################################
+        // #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#
 
         #region Data panel
 
@@ -135,7 +135,7 @@ namespace ImageMarker.Windows
 
         #endregion Data panel
 
-        // #################################################################################
+        // #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#
 
         #region Data panel context menu
 
@@ -241,7 +241,7 @@ namespace ImageMarker.Windows
 
         #endregion Data panel context menu
 
-        // #################################################################################
+        // #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#
 
         #region Zones panel toolbar
 
@@ -258,6 +258,18 @@ namespace ImageMarker.Windows
             if (tag == "open")
             {
                 zone.Open_Click(sender, e);
+            }
+        }
+
+        /// <summary>
+        /// Button - saving zones to a file
+        /// </summary>
+        private void ZonesSave_Click(object sender, RoutedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(dataPath))
+            {
+                string json = zones.ToJson(true);
+                File.WriteAllText(dataPath, json);
             }
         }
 
@@ -287,18 +299,9 @@ namespace ImageMarker.Windows
             }
         }
 
-        /// <summary>
-        /// Button - saving zones to a file
-        /// </summary>
-        private void ZonesSave_Click(object sender, RoutedEventArgs e)
-        {
-            string json = zones.ToJson(true);
-            File.WriteAllText(dataPath, json);
-        }
-
         #endregion Zones panel toolbar
 
-        // #################################################################################
+        // #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#
 
         #region Operations with zones
 

@@ -127,7 +127,7 @@ namespace ImageMarker.Classes
         /// </summary>        
         public double Left { get; set; } = 20;
 
-        // #################################################################################
+        // #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#
 
         /// <summary>
         /// Set value to mainWindow
@@ -138,7 +138,7 @@ namespace ImageMarker.Classes
             this.mainWindow = mainWindow;
         }
 
-        // #################################################################################
+        // #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#
 
         #region Operations with selectionBox
 
@@ -229,7 +229,7 @@ namespace ImageMarker.Classes
 
         #endregion Operations with selectionBox
 
-        // #################################################################################
+        // #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#
 
         #region Contex buttons for selectionBox
 
@@ -271,7 +271,7 @@ namespace ImageMarker.Classes
 
         #endregion Contex buttons for selectionBox
 
-        // #################################################################################
+        // #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -318,6 +318,9 @@ namespace ImageMarker.Classes
             return clone;
         }
     }
+
+
+    // \./'\./'\./'\./'\./'\./'\./'\./'\./'\./'\./'\./'\./'\./'\./'\./'\./'\./'\./'\./'\./'\./'\./
 
 
     /// <summary>

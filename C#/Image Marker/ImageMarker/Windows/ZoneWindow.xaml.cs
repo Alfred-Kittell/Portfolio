@@ -16,7 +16,7 @@ namespace ImageMarker.Windows
         private Zone zone;
         private Zone clone;
 
-        // #################################################################################
+        // #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#
 
         /// <summary>
         /// Initializes a new instance of the class <see cref="ZoneWindow"/>.
@@ -33,10 +33,11 @@ namespace ImageMarker.Windows
             mainTagBox.Text = zone.MainTag;
             sideTagBox.Text = zone.SideTag;
             nameBox.Text = zone.Name;
+            additionalBox.Text = zone.Description;
             visibleBox.IsChecked = zone.IsVisible;
         }
 
-        // #################################################################################
+        // #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#
 
         /// <summary>
         /// Event - text change 

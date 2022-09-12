@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
         xmlns:classes="clr-namespace:ImageMarker.Classes"
         mc:Ignorable="d"
-        Title="Image marker" Height="650" Width="943" MinWidth="943" MinHeight="650">
+        Title="Image marker" Height="500" Width="700" MinHeight="500" MinWidth="700">
 
     <Window.Resources>
         <classes:Zones x:Key="zones"/>
@@ -42,7 +42,7 @@
         <Border Margin="5,10,10,10" BorderBrush="Black" BorderThickness="1" Grid.Column="1">
             <Grid Background="LightGray">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="200"/>
+                    <RowDefinition Height="150"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
@@ -54,7 +54,7 @@
                     </Grid.RowDefinitions>
                     <Grid HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="233">
                         <Label Content="Demo images" Background="#FF457AB0" Foreground="White" Padding="10,0,0,0" FontFamily="Verdana" FontSize="14" VerticalContentAlignment="Center"/>
-                        <Button Content="🔄" Width="18" Height="17" Margin="207,5,0,0" FontFamily="Verdana" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="16" HorizontalContentAlignment="Center" Padding="-2,-2,0,0" VerticalContentAlignment="Center" BorderThickness="0" Click="ImgUpdate_Click"/>
+                        <Button Content="🔄"  Click="ImgUpdate_Click" Margin="207,5,8,8" FontFamily="Verdana" FontSize="16" Padding="-2,-2,0,0" BorderThickness="0"/>
                     </Grid>
                     <ListBox x:Name="imgList" Grid.Row="1" BorderThickness="0" FontFamily="Verdana" MouseDoubleClick="SelectImg_MouseDoubleClick"/>
                 </Grid>
