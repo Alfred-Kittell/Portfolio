@@ -1,0 +1,364 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RtspClientSharp</name>
+    </assembly>
+    <members>
+        <member name="P:RtspClientSharp.ConnectionParameters.ConnectionUri">
+            <summary>
+            Uri should start from "rtsp://" prefix for RTSP over TCP transport
+            and from "http://" for RTSP over HTTP tunneling
+            </summary>
+        </member>
+        <member name="P:RtspClientSharp.ConnectionParameters.RequiredTracks">
+            <summary>
+            Should be used to get only one video/audio track from device.
+            Important notes: some devices won't connect in that case (SETUP request could not be processed)
+            </summary>
+        </member>
+        <member name="M:RtspClientSharp.IRtspClient.ConnectAsync(System.Threading.CancellationToken)">
+            <summary>
+            Connect to endpoint and start RTSP session
+            </summary>
+            <exception cref="T:System.OperationCanceledException"></exception>
+            <exception cref="T:System.Security.Authentication.InvalidCredentialException"></exception>
+            <exception cref="T:RtspClientSharp.Rtsp.RtspClientException"></exception>
+        </member>
+        <member name="M:RtspClientSharp.IRtspClient.ReceiveAsync(System.Threading.CancellationToken)">
+            <summary>
+            Receive frames. 
+            Should be called after successful connection to endpoint or <exception cref="T:System.InvalidOperationException"></exception> will be thrown
+            </summary>
+            <exception cref="T:System.OperationCanceledException"></exception>
+            <exception cref="T:RtspClientSharp.Rtsp.RtspClientException"></exception>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:RtspClientSharp.RtspClient.ConnectAsync(System.Threading.CancellationToken)">
+            <summary>
+            Connect to endpoint and start RTSP session
+            </summary>
+            <exception cref="T:System.OperationCanceledException"></exception>
+            <exception cref="T:System.Security.Authentication.InvalidCredentialException"></exception>
+            <exception cref="T:RtspClientSharp.Rtsp.RtspClientException"></exception>
+        </member>
+        <member name="M:RtspClientSharp.RtspClient.ReceiveAsync(System.Threading.CancellationToken)">
+            <summary>
+            Receive frames. 
+            Should be called after successful connection to endpoint or InvalidOperationException will be thrown
+            </summary>
+            <exception cref="T:System.OperationCanceledException"></exception>
+            <exception cref="T:RtspClientSharp.Rtsp.RtspClientException"></exception>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:RtspClientSharp.RtspClient.Dispose">
+            <summary>
+            Clean up unmanaged resources
+            </summary>
+        </member>
+        <member name="T:RtspClientSharp.Rtsp.Authentication.MD5.ABCDStruct">
+            <summary>
+                Simple struct for the (a,b,c,d) which is used to compute the mesage digest.
+            </summary>
+        </member>
+        <member name="M:RtspClientSharp.Rtsp.HeadersParser.ParseHeaders(System.IO.StreamReader)">
+            <summary>
+            Парсер заголовка сообщения
+            </summary>
+            <param name="headersReader">Поток с заголовком</param>
+            <returns>Заголовки</returns>
+        </member>
+        <member name="T:RtspClientSharp.Rtsp.RtspMessage">
+            <summary>
+            Базовый класс сообщений RTSP
+            </summary>
+        </member>
+        <member name="P:RtspClientSharp.Rtsp.RtspMessage.CSeq">
+            <summary>
+            Порядковый номер запроса
+            </summary>
+        </member>
+        <member name="P:RtspClientSharp.Rtsp.RtspMessage.ProtocolVersion">
+            <summary>
+            Версия протокола
+            </summary>
+        </member>
+        <member name="P:RtspClientSharp.Rtsp.RtspMessage.Headers">
+            <summary>
+            Заголовки запроса
+            </summary>
+        </member>
+        <member name="M:RtspClientSharp.Rtsp.RtspMessage.#ctor(System.UInt32,System.Version)">
+            <summary>
+            Базовый конструктор запроса
+            </summary>
+            <param name="cSeq">Порядковый номер запроса</param>
+            <param name="protocolVersion">Версия протокола</param>
+        </member>
+        <member name="M:RtspClientSharp.Rtsp.RtspMessage.#ctor(System.UInt32,System.Version,System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Базовый конструктор ответа
+            </summary>
+            <param name="cSeq">Порядковый номер запроса</param>
+            <param name="protocolVersion">Версия протокола</param>
+            <param name="headers">Заголовки запроса</param>
+        </member>
+        <member name="T:RtspClientSharp.Rtsp.RtspMethod">
+            <summary>
+            Методы протокола RTSP
+            </summary>
+        </member>
+        <member name="F:RtspClientSharp.Rtsp.RtspMethod.DESCRIBE">
+            <summary>
+            Запрос описания содержимого
+            </summary>
+        </member>
+        <member name="F:RtspClientSharp.Rtsp.RtspMethod.OPTIONS">
+            <summary>
+            Запрос поддерживаемых методов
+            </summary>
+        </member>
+        <member name="F:RtspClientSharp.Rtsp.RtspMethod.SETUP">
+            <summary>
+            Запрос установки транспортного механизма для содержимого
+            </summary>
+        </member>
+        <member name="F:RtspClientSharp.Rtsp.RtspMethod.PLAY">
+            <summary>
+            Запрос начала вещания содержимого
+            </summary>
+        </member>
+        <member name="F:RtspClientSharp.Rtsp.RtspMethod.PAUSE">
+            <summary>
+            Запрос временной остановки вещания
+            </summary>
+        </member>
+        <member name="F:RtspClientSharp.Rtsp.RtspMethod.RECORD">
+            <summary>
+            Запрос на записывание содержимого сервером
+            </summary>
+        </member>
+        <member name="F:RtspClientSharp.Rtsp.RtspMethod.REDIRECT">
+            <summary>
+            Перенаправление на другое содержимое
+            </summary>
+        </member>
+        <member name="F:RtspClientSharp.Rtsp.RtspMethod.ANNOUNCE">
+            <summary>
+            Обновление данных описания содержимого
+            </summary>
+        </member>
+        <member name="F:RtspClientSharp.Rtsp.RtspMethod.GET_PARAMETER">
+            <summary>
+            Запрос указанных параметров у сервера
+            </summary>
+        </member>
+        <member name="F:RtspClientSharp.Rtsp.RtspMethod.SET_PARAMETER">
+            <summary>
+            Установка параметров сервера
+            </summary>
+        </member>
+        <member name="F:RtspClientSharp.Rtsp.RtspMethod.PLAY_NOTIFY">
+            <summary>
+            Информирования клиента об асинхронном событии для сеанса в состоянии воспроизведениявв
+            </summary>
+        </member>
+        <member name="F:RtspClientSharp.Rtsp.RtspMethod.TEARDOWN">
+            <summary>
+            Запрос остановки вещания
+            </summary>
+        </member>
+        <member name="T:RtspClientSharp.Rtsp.RtspRequestMessage">
+            <summary>
+            Сообщение запроса RTSP
+            </summary>
+        </member>
+        <member name="P:RtspClientSharp.Rtsp.RtspRequestMessage.Method">
+            <summary>
+            Метод протокола RTSP
+            </summary>
+        </member>
+        <member name="P:RtspClientSharp.Rtsp.RtspRequestMessage.ConnectionUri">
+            <summary>
+            Адрес хоста
+            </summary>
+        </member>
+        <member name="P:RtspClientSharp.Rtsp.RtspRequestMessage.UserAgent">
+            <summary>
+            Имя приложения
+            </summary>
+        </member>
+        <member name="M:RtspClientSharp.Rtsp.RtspRequestMessage.#ctor(RtspClientSharp.Rtsp.RtspMethod,System.Uri,System.Version,System.Func{System.UInt32},System.String,System.String)">
+            <summary>
+            Конструктор запроса
+            </summary>
+            <param name="method">Метод протокола RTSP</param>
+            <param name="connectionUri">Адрес хоста</param>
+            <param name="protocolVersion">Версия протокола</param>
+            <param name="cSeqProvider">Порядковый номер сообщения</param>
+            <param name="userAgent">Имя приложения</param>
+            <param name="session">Сессия</param>
+        </member>
+        <member name="M:RtspClientSharp.Rtsp.RtspRequestMessage.UpdateSequenceNumber">
+            <summary>
+            Обновление номера запроса
+            </summary>
+        </member>
+        <member name="M:RtspClientSharp.Rtsp.RtspRequestMessage.ToString">
+            <summary>
+            Представление запроса в виде строки
+            </summary>
+            <returns>Текст запроса</returns>
+        </member>
+        <member name="T:RtspClientSharp.Rtsp.RtspRequestMessageFactory">
+            <summary>
+            Фабрика запросов к хосту по протоколу RTSP
+            </summary>
+        </member>
+        <member name="P:RtspClientSharp.Rtsp.RtspRequestMessageFactory.ContentBase">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RtspClientSharp.Rtsp.RtspRequestMessageFactory.SessionId">
+            <summary>
+            Сессия
+            </summary>
+        </member>
+        <member name="M:RtspClientSharp.Rtsp.RtspRequestMessageFactory.#ctor(System.Uri,System.String)">
+            <summary>
+            Конструктор фабрики запросов
+            </summary>
+            <param name="rtspUri">Адрес хоста</param>
+            <param name="userAgent">Имя приложения</param>
+        </member>
+        <member name="M:RtspClientSharp.Rtsp.RtspRequestMessageFactory.CreateOptionsRequest">
+            <summary>
+            Создание запроса на поддерживаемые методы
+            </summary>
+            <returns>Запрос</returns>
+        </member>
+        <member name="M:RtspClientSharp.Rtsp.RtspRequestMessageFactory.CreateDescribeRequest">
+            <summary>
+            Создание запроса на описание содержимого
+            </summary>
+            <returns>Запрос</returns>
+        </member>
+        <member name="M:RtspClientSharp.Rtsp.RtspRequestMessageFactory.CreateSetupTcpInterleavedRequest(System.String,System.Int32,System.Int32)">
+            <summary>
+            Создание запроса на транспортный протокол RTP/AVP/TCP
+            </summary>
+            <param name="trackName">Имя трека</param>
+            <param name="rtpChannel">RTP канал</param>
+            <param name="rtcpChannel">RTCP канал</param>
+            <returns>Запрос</returns>
+        </member>
+        <member name="M:RtspClientSharp.Rtsp.RtspRequestMessageFactory.CreateSetupUdpUnicastRequest(System.String,System.Int32,System.Int32)">
+            <summary>
+            Создание запроса на транспортный протокол RTP/AVP/UDP
+            </summary>
+            <param name="trackName">Имя трека</param>
+            <param name="rtpPort">RTP порт</param>
+            <param name="rtcpPort">RTCP порт</param>
+            <returns>Запрос</returns>
+        </member>
+        <member name="M:RtspClientSharp.Rtsp.RtspRequestMessageFactory.CreatePlayRequest">
+            <summary>
+            Создание запроса на начало вещание
+            </summary>
+            <returns>Запрос</returns>
+        </member>
+        <member name="M:RtspClientSharp.Rtsp.RtspRequestMessageFactory.CreateTeardownRequest">
+            <summary>
+            Создание запроса остановки вещания
+            </summary>
+            <returns>Запрос</returns>
+        </member>
+        <member name="M:RtspClientSharp.Rtsp.RtspRequestMessageFactory.CreateGetParameterRequest">
+            <summary>
+            Создание запроса на получение параметров
+            </summary>
+            <returns>Запрос</returns>
+        </member>
+        <member name="M:RtspClientSharp.Rtsp.RtspRequestMessageFactory.NextCSeqProvider">
+            <summary>
+            Увеличить и вернуть номер запроса
+            </summary>
+            <returns>Следующий номер запроса</returns>
+        </member>
+        <member name="M:RtspClientSharp.Rtsp.RtspRequestMessageFactory.GetTrackUri(System.String)">
+            <summary>
+            Объединение адреса хоста и имени трека
+            </summary>
+            <param name="trackName">Имя трека</param>
+            <returns>Полный адрес трека</returns>
+        </member>
+        <member name="T:RtspClientSharp.Rtsp.RtspResponseMessage">
+            <summary>
+            Сообщение ответа RTSP
+            </summary>
+        </member>
+        <member name="P:RtspClientSharp.Rtsp.RtspResponseMessage.StatusCode">
+            <summary>
+            Код ответа
+            </summary>
+        </member>
+        <member name="P:RtspClientSharp.Rtsp.RtspResponseMessage.ResponseBody">
+            <summary>
+            Тело ответа
+            </summary>
+        </member>
+        <member name="M:RtspClientSharp.Rtsp.RtspResponseMessage.#ctor(RtspClientSharp.Rtsp.RtspStatusCode,System.Version,System.UInt32,System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Конструктор ответа
+            </summary>
+            <param name="statusCode">Код ответа</param>
+            <param name="protocolVersion">Версия протокола</param>
+            <param name="cSeq">Порядковый номер сообщения</param>
+            <param name="headers">Заголовки ответа</param>
+        </member>
+        <member name="M:RtspClientSharp.Rtsp.RtspResponseMessage.Parse(System.ArraySegment{System.Byte})">
+            <summary>
+            Парсер ответа
+            </summary>
+            <param name="byteSegment">Данные</param>
+            <returns>Ответ</returns>
+        </member>
+        <member name="M:RtspClientSharp.Rtsp.RtspResponseMessage.ToString">
+            <summary>
+            Представление запроса в виде строки
+            </summary>
+            <returns>Текст ответа</returns>
+        </member>
+        <member name="M:RtspClientSharp.Rtsp.RtspResponseMessage.ParseStatusCode(System.String)">
+            <summary>
+            Парсер кода ответа
+            </summary>
+            <param name="statusCode">Строка с кодом</param>
+            <returns>Код ответа</returns>
+        </member>
+        <member name="M:RtspClientSharp.Rtsp.RtspResponseMessage.GetFirstLineTokens(System.String)">
+            <summary>
+            Парсер первой строки ответа
+            </summary>
+            <param name="startLine">Строка ответа</param>
+            <returns>Токены первой строки</returns>
+        </member>
+        <member name="M:RtspClientSharp.Rtsp.RtspResponseMessage.ParseProtocolVersion(System.String)">
+            <summary>
+            Парсер протокола
+            </summary>
+            <param name="protocolNameVersion">Строка с протоколом</param>
+            <returns>Версия протокола</returns>
+        </member>
+        <member name="T:RtspClientSharp.Utils.ChunksArray">
+            <summary>
+            The main idea of that class is to reduce the amount of references to arrays for GC
+            </summary>
+        </member>
+        <member name="T:RtspClientSharp.Utils.SimpleHybridLock">
+            <summary>
+            From CLR via C#, fourth edition
+            </summary>
+        </member>
+    </members>
+</doc>
